@@ -8,14 +8,15 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       direction: rtl;
-      overflow: hidden;
-      height: 100vh;
+      overflow-x: hidden;
+      min-height: 100vh;
       background: linear-gradient(270deg, #e3f2fd, #ede7f6, #e1bee7);
       background-size: 600% 600%;
       animation: gradientBG 20s ease infinite;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px 0;
     }
 
     @keyframes gradientBG {
@@ -30,7 +31,7 @@
       border-radius: 24px;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
       max-width: 90%;
-      width: 500px;
+      width: 600px;
       position: relative;
       animation: fadeIn 0.5s ease;
       transition: all 0.3s ease;
@@ -44,14 +45,16 @@
     h1 {
       font-size: 24px;
       color: #333;
-      margin: 30px 0 10px;
+      margin: 30px 0 20px;
       min-height: 60px;
+      text-align: center;
     }
 
     #questionNumber {
       font-weight: bold;
       font-size: 18px;
       color: #555;
+      text-align: center;
     }
 
     .btn {
@@ -101,33 +104,63 @@
       display: none;
     }
 
-    .names-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      text-align: center;
+    .names-list {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 12px;
+      padding: 20px;
       margin: 20px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      border: 1px solid #dee2e6;
     }
 
-    .names-grid div {
-      background-color: #f3e5f5;
-      padding: 10px;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    .names-list h3 {
+      color: #495057;
+      margin: 0 0 20px 0;
+      font-size: 18px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .names-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px 6px;
+      line-height: 1.2;
+    }
+
+    .name-item {
+      color: #495057;
+      font-size: 12px;
+      padding: 1px 2px;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .name-item:before {
+      content: "• ";
+      color: #6c757d;
     }
 
     @media (max-width: 480px) {
       .container {
-        width: 90%;
+        width: 95%;
         padding: 30px 20px;
       }
       .btn {
         width: 100%;
         margin: 10px 0;
       }
-      .names-grid {
+      .names-columns {
         grid-template-columns: repeat(2, 1fr);
       }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
@@ -135,38 +168,71 @@
 
 <div class="container" id="introScreen">
   <h1>בחר בחור מהשיעור שסיים איתנו ש"ג בק"ג והגיע לקבוצה</h1>
-  <div class="names-grid">
-    <div>גושן</div>
-    <div>פרוס</div>
-    <div>הרשקופ</div>
-    <div>כהנא</div>
-    <div>שארר</div>
-    <div>יעקובוביץ</div>
-    <div>רייכמיסטרובסקי</div>
-    <div>קנלסקי</div>
-    <div>חזן</div>
-    <div>טנגי</div>
-    <div>צירקוס</div>
-    <div>מונדשיין</div>
-    <div>חנונו</div>
-    <div>בורטניק</div>
-    <div>קורץ</div>
-    <div>ירס</div>
-    <div>זוהר</div>
-    <div>רוזנברג</div>
-    <div>ביטון</div>
-    <div>שחם</div>
-    <div>כלאב</div>
-    <div>אמיתי</div>
-    <div>פריימן</div>
-    <div>מרזל</div>
-    <div>רוזנבוים</div>
-    <div>שפרינצין</div>
-    <div>ממוט</div>
-    <div>יעקובוב</div>
-    <div>הייזלר</div>
-    <div>ריפקין</div>
+  
+  <div class="names-list">
+    <h3>רשימת הבחורים</h3>
+    <div class="names-columns">
+      <div class="name-item">אוריה יעקובוב</div>
+      <div class="name-item">ארי אורנשטיין</div>
+      <div class="name-item">איציק בינשטוק</div>
+      <div class="name-item">אהרלה ברוסילובסקי</div>
+      <div class="name-item">אברימי בירנהק</div>
+      <div class="name-item">איתי ג'רבי</div>
+      <div class="name-item">אלי זהר</div>
+      <div class="name-item">אלי קפלן</div>
+      <div class="name-item">אלי קורצוויל</div>
+      <div class="name-item">בנימין כלאב</div>
+      <div class="name-item">גדליה שארר</div>
+      <div class="name-item">דודי אמיתי</div>
+      <div class="name-item">דודי חרנובסקי</div>
+      <div class="name-item">דוד טובי</div>
+      <div class="name-item">דובי צירקוס</div>
+      <div class="name-item">דובער שחם</div>
+      <div class="name-item">חזקי פריימן</div>
+      <div class="name-item">יוסי אדרי</div>
+      <div class="name-item">ישי ביטון</div>
+      <div class="name-item">יוסי גושן</div>
+      <div class="name-item">יוסי טנג'י</div>
+      <div class="name-item">יוסי כהן</div>
+      <div class="name-item">יוסי ממוט</div>
+      <div class="name-item">יוסי נויהויזר</div>
+      <div class="name-item">יוסי פורלנדר</div>
+      <div class="name-item">ישראל פרץ</div>
+      <div class="name-item">יוסי קורנט</div>
+      <div class="name-item">יוסי ריפקין</div>
+      <div class="name-item">יוסי שפרינצין</div>
+      <div class="name-item">ישראל הייזלר</div>
+      <div class="name-item">לוי גורליק</div>
+      <div class="name-item">לוי חנונו</div>
+      <div class="name-item">לוי רייכמיסטרובסקי</div>
+      <div class="name-item">מוישי הרשקופ</div>
+      <div class="name-item">מוישי וואלפין</div>
+      <div class="name-item">מענדי זקלס</div>
+      <div class="name-item">מענדל חביב</div>
+      <div class="name-item">מנחם ירט</div>
+      <div class="name-item">מנחם ירס</div>
+      <div class="name-item">מיכאל יעקובוביץ</div>
+      <div class="name-item">מענדי כהן</div>
+      <div class="name-item">מענדי למברג</div>
+      <div class="name-item">מענדי מרזל</div>
+      <div class="name-item">מנחם רוזנברג</div>
+      <div class="name-item">מנחם רוזנבוים</div>
+      <div class="name-item">נועם שרעבי</div>
+      <div class="name-item">עזרא כהן</div>
+      <div class="name-item">צביקי מונדשיין</div>
+      <div class="name-item">צביקי קנלסקי</div>
+      <div class="name-item">שולם אוסטרובסקי</div>
+      <div class="name-item">שמוליק בלוי</div>
+      <div class="name-item">שניאור בורטניק</div>
+      <div class="name-item">שולם זרחין</div>
+      <div class="name-item">שולם בער כהנא</div>
+      <div class="name-item">שמוליק ערנטרוי</div>
+      <div class="name-item">שאולי פרוס</div>
+      <div class="name-item">שמחה קרעמר</div>
+      <div class="name-item">שניאור קורץ</div>
+    </div>
   </div>
+  
   <button class="btn" onclick="startQuiz()">בחרתי - אפשר להתחיל</button>
 </div>
 
@@ -174,7 +240,7 @@
   <button id="backBtn" class="btn-small" onclick="goBack()" style="display:none;">⬅ חזור</button>
   <div id="questionNumber"></div>
   <h1 id="question">טוען שאלה...</h1>
-  <div>
+  <div style="text-align: center;">
     <button class="btn" onclick="answer('yes')">כן</button>
     <button class="btn" onclick="answer('no')">לא</button>
   </div>
@@ -194,22 +260,22 @@
             question: "אשכנזי?",
             yes: {
               question: "משקפיים?",
-              yes: "פרוס",
-              no: "הרשקופ"
+              yes: "שאולי פרוס",
+              no: "מוישי הרשקופ"
             },
-            no: "זוהר"
+            no: "אלי זהר"
           },
           no: {
             question: "אבא עובד בישיבה?",
             yes: {
               question: "יש לו אח שהיה שליח שלנו?",
-              yes: "כהנא",
-              no: "יעקובוביץ"
+              yes: "שולם בער כהנא",
+              no: "מיכאל יעקובוביץ"
             },
             no: {
               question: "אזרח אמריקאי?",
-              yes: "שארר",
-              no: "ממוט"
+              yes: "גדליה שארר",
+              no: "יוסי ממוט"
             }
           }
         },
@@ -217,24 +283,24 @@
           question: "דובר שפה נוספת?",
           yes: {
             question: "אזרח אמריקאי?",
-            yes: "חזן",
+            yes: "יוסי גושן",
             no: {
               question: "שליח בישיבה קטנה שנה הבאה?",
-              yes: "בורטניק",
-              no: "רייכמיסטרובסקי"
+              yes: "שניאור בורטניק",
+              no: "לוי רייכמיסטרובסקי"
             }
           },
           no: {
             question: "היה גנרל בקעמפים?",
             yes: {
               question: "ארגניטנאי?",
-              yes: "רוזנברג",
-              no: "קנלסקי"
+              yes: "מנחם רוזנברג",
+              no: "צביקי קנלסקי"
             },
             no: {
               question: "אזרח אמריקאי?",
-              yes: "ירס",
-              no: "קורץ"
+              yes: "מנחם ירס",
+              no: "שניאור קורץ"
             }
           }
         }
@@ -247,26 +313,26 @@
             question: "שליח באוקראינה בהווה או בעבר?",
             yes: {
               question: "מנגן על כלי?",
-              yes: "גושן",
-              no: "קרעמר"
+              yes: "יוסי גושן",
+              no: "שמחה קרעמר"
             },
             no: {
               question: "אזרח אמריקאי?",
-              yes: "פרץ",
-              no: "אוסטרובסקי"
+              yes: "ישראל פרץ",
+              no: "שולם אוסטרובסקי"
             }
           },
           no: {
             question: "מוצא מזרחי?",
             yes: {
               question: "משקפיים?",
-              yes: "חנונו",
-              no: "טנגי"
+              yes: "לוי חנונו",
+              no: "יוסי טנג'י"
             },
             no: {
               question: "משקפיים?",
-              yes: "מונדשיין",
-              no: "צירקוס"
+              yes: "צביקי מונדשיין",
+              no: "דובי צירקוס"
             }
           }
         },
@@ -276,26 +342,26 @@
             question: "עובד בעבודה קבועה?",
             yes: {
               question: "משקפיים?",
-              yes: "טובי",
-              no: "בינשטוק"
+              yes: "דוד טובי",
+              no: "איציק בינשטוק"
             },
             no: {
               question: "אזרח אמריקאי?",
-              yes: "ואלפין",
-              no: "נויהויזר"
+              yes: "מוישי וואלפין",
+              no: "יוסי נויהויזר"
             }
           },
           no: {
             question: "מוצא מזרחי?",
             yes: {
               question: "עושה מבצעים בטנק?",
-              yes: "כלאב",
-              no: "שחם"
+              yes: "בנימין כלאב",
+              no: "דובער שחם"
             },
             no: {
               question: "אוכל אצל נדב בשבתות?",
-              yes: "ביטון",
-              no: "גרבי"
+              yes: "ישי ביטון",
+              no: "איתי ג'רבי"
             }
           }
         }
@@ -309,17 +375,17 @@
           question: "4. גר בעבר בחו\"ל?",
           yes: {
             question: "5. למד בישי\"ק איסטרא?",
-            yes: "גורליק",
+            yes: "לוי גורליק",
             no: {
               question: "6. משקפיים?",
-              yes: "ברוסילובסקי",
-              no: "פורלנדר"
+              yes: "אהרלה ברוסילובסקי",
+              no: "יוסי פורלנדר"
             }
           },
           no: {
             question: "5. גן ישראל נתיבות?",
-            yes: "זרחין",
-            no: "למברג"
+            yes: "שולם זרחין",
+            no: "מענדי למברג"
           }
         },
         no: {
@@ -328,26 +394,26 @@
             question: "5. יש לו אחים גדולים?",
             yes: {
               question: "6. אזרח אמריקאי?",
-              yes: "בירנהאק",
-              no: "חרנובסקי"
+              yes: "אברימי בירנהק",
+              no: "דודי חרנובסקי"
             },
             no: {
               question: "6. יושן ב1414?",
-              yes: "זקלס",
-              no: "כהן עזרא"
+              yes: "מענדי זקלס",
+              no: "עזרא כהן"
             }
           },
           no: {
             question: "5. שם משפחה 4 אותיות?",
             yes: {
               question: "6. משקפיים?",
-              yes: "קפלן",
-              no: "אדרי"
+              yes: "אלי קפלן",
+              no: "יוסי אדרי"
             },
             no: {
               question: "6. נמצא עדיין בקבוצה?",
-              yes: "ערנטרוי",
-              no: "קורצוייל"
+              yes: "שמוליק ערנטרוי",
+              no: "אלי קורצוויל"
             }
           }
         }
@@ -361,22 +427,22 @@
             yes: {
               question: "6. יש לו אח שהיה שליח שלנו?",
               yes: "יוסי כהן",
-              no: "שרעבי"
+              no: "נועם שרעבי"
             },
             no: {
               question: "6. משקפיים?",
-              yes: "הייזלר",
-              no: "יעקובוב"
+              yes: "ישראל הייזלר",
+              no: "אוריה יעקובוב"
             }
           },
           no: {
             question: "5. שליח בישוב?",
             yes: {
               question: "6. משקפיים?",
-              yes: "בלוי",
-              no: "קורנט"
+              yes: "שמוליק בלוי",
+              no: "יוסי קורנט"
             },
-            no: "ריפקין"
+            no: "יוסי ריפקין"
           }
         },
         no: {
@@ -386,25 +452,25 @@
             yes: {
               question: "6. משקפיים?",
               yes: "מענדי כהן",
-              no: "אורנשטיין"
+              no: "ארי אורנשטיין"
             },
             no: {
               question: "5. אשכנזי?",
-              yes: "ירט",
-              no: "אמיתי"
+              yes: "מנחם ירט",
+              no: "דודי אמיתי"
             }
           },
           no: {
             question: "5. אזרח אמריקאי?",
             yes: {
               question: "6. יושן ב1414?",
-              yes: "רוזנבוים",
-              no: "מרזל"
+              yes: "מנחם רוזנבוים",
+              no: "מענדי מרזל"
             },
             no: {
               question: "6. שליח בישוב?",
-              yes: "פריימן",
-              no: "שפרינצין"
+              yes: "חזקי פריימן",
+              no: "יוסי שפרינצין"
             }
           }
         }
@@ -461,9 +527,6 @@
     numberEl.style.opacity = 1;
   }, 200);
 }
-
-
-
 
   function answer(response) {
     if (currentNode[response]) {
