@@ -12,110 +12,137 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       direction: rtl;
       min-height: 100vh;
-      background: linear-gradient(270deg, #e3f2fd, #ede7f6, #e1bee7);
-      background-size: 600% 600%;
-      animation: gradientBG 20s ease infinite;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
     }
 
     .container {
-      background-color: #ffffffdd;
-      padding: 10px;
-      border-radius: 0;
-      box-shadow: none;
-      width: 100vw;
+      background: linear-gradient(145deg, #ffffff, #f8f9fa);
+      margin: 0;
+      padding: 25px 20px;
       min-height: 100vh;
       position: relative;
-      animation: fadeIn 0.5s ease;
-      transition: all 0.3s ease;
+      box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    /* כותרות וטקסטים */
     h1 {
-      font-size: 20px;
-      color: #333;
-      margin: 15px 0;
+      font-size: 28px;
+      font-weight: 800;
+      color: #2c3e50;
+      margin: 20px 0 15px 0;
       text-align: center;
       line-height: 1.3;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .subtitle {
-      font-size: 14px;
-      color: #666;
+      font-size: 18px;
+      color: #5a6c7d;
       text-align: center;
-      margin: 5px 0 15px 0;
-      line-height: 1.2;
+      margin: 0 0 25px 0;
+      line-height: 1.4;
+      font-weight: 500;
     }
 
     #questionNumber {
-      font-weight: bold;
-      font-size: 18px;
-      color: #555;
+      font-weight: 700;
+      font-size: 24px;
+      color: #34495e;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #3498db, #9b59b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
+    /* כפתורים עיקריים */
     .btn {
-      background: linear-gradient(90deg, #42a5f5, #7e57c2);
+      background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
       color: white;
       border: none;
-      border-radius: 25px;
-      padding: 18px 25px;
-      font-size: 18px;
-      font-weight: bold;
-      margin: 8px 0;
+      border-radius: 20px;
+      padding: 25px 30px;
+      font-size: 22px;
+      font-weight: 700;
+      margin: 15px 0;
       cursor: pointer;
-      transition: transform 0.2s ease, background 0.3s ease;
+      transition: all 0.3s ease;
       width: 100%;
-      touch-action: manipulation;
-      min-height: 55px;
+      min-height: 75px;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
     }
 
     .btn:hover {
-      transform: scale(1.02);
-      background: linear-gradient(90deg, #2196f3, #673ab7);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4);
     }
 
+    /* כפתור חזרה */
     .btn-small {
-      background: none;
+      background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+      color: white;
       border: none;
-      color: #555;
-      font-size: 14px;
+      border-radius: 15px;
+      font-size: 18px;
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 20px;
+      right: 20px;
       cursor: pointer;
-      text-decoration: underline;
-      padding: 5px;
+      padding: 12px 20px;
       z-index: 10;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+      transition: all 0.3s ease;
     }
 
     .btn-small:hover {
-      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(149, 165, 166, 0.4);
     }
 
+    /* כפתור התחל מחדש */
     #restartBtn {
-      margin-top: 20px;
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+      margin-top: 30px;
     }
 
+    #restartBtn:hover {
+      box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+    }
+
+    /* מסכים */
     #introScreen {
       display: block;
       text-align: center;
@@ -125,125 +152,192 @@
       display: none;
     }
 
+    /* רשימת השמות */
     .names-list {
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      border-radius: 12px;
-      padding: 10px;
-      margin: 10px 0 15px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      border: 1px solid #dee2e6;
+      background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+      border-radius: 15px;
+      padding: 15px;
+      margin: 20px 0 25px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 1px solid #d5dbdb;
+      max-height: 300px;
+      overflow-y: auto;
     }
 
     .names-list h3 {
-      color: #495057;
-      margin: 0 0 8px 0;
-      font-size: 14px;
+      color: #2c3e50;
+      margin: 0 0 12px 0;
+      font-size: 18px;
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      background: inherit;
+      padding: 5px 0;
     }
 
     .names-columns {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2px 6px;
+      gap: 3px 8px;
       line-height: 1.2;
     }
 
     .name-item {
-      color: #495057;
-      font-size: 11px;
-      padding: 2px;
+      color: #34495e;
+      font-size: 13px;
+      padding: 6px 8px;
       text-align: right;
-      word-wrap: break-word;
-      hyphens: auto;
+      font-weight: 500;
     }
 
     .name-item:before {
       content: "• ";
       color: #6c757d;
-      font-size: 8px;
+      font-size: 10px;
     }
 
-    /* התאמות נוספות למסכים קטנים */
-    @media (max-width: 500px) {
+    /* תוצאה */
+    .result-container {
+      background: linear-gradient(135deg, #1abc9c, #16a085);
+      padding: 35px 25px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(26, 188, 156, 0.4);
+      margin: 20px 0;
+      text-align: center;
+      animation: resultPop 0.6s ease;
+    }
+
+    @keyframes resultPop {
+      0% { 
+        transform: scale(0.3) rotate(-5deg); 
+        opacity: 0; 
+      }
+      50% { 
+        transform: scale(1.1) rotate(2deg); 
+      }
+      100% { 
+        transform: scale(1) rotate(0deg); 
+        opacity: 1; 
+      }
+    }
+
+    .result-text {
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .result-name {
+      color: white;
+      font-size: 32px;
+      font-weight: 800;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      margin: 10px 0;
+    }
+
+    .result-emoji {
+      font-size: 50px;
+      margin: 15px 0;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* אנימציות */
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.5s ease;
+    }
+
+    /* התאמות מיוחדות למסכים קטנים */
+    @media (max-width: 400px) {
       .container {
-        padding: 8px;
+        padding: 20px 15px;
       }
       
       h1 {
-        font-size: 18px;
-        margin: 8px 0;
+        font-size: 24px;
       }
       
       .subtitle {
-        font-size: 13px;
-        margin: 5px 0 10px 0;
+        font-size: 16px;
+      }
+      
+      .btn {
+        font-size: 20px;
+        padding: 22px 25px;
+        min-height: 70px;
       }
       
       .names-list {
-        padding: 8px;
-        margin: 8px 0;
-      }
-      
-      .names-columns {
-        grid-template-columns: 1fr 1fr;
-        gap: 3px 8px;
+        padding: 12px;
+        max-height: 250px;
       }
       
       .name-item {
         font-size: 12px;
-        padding: 2px 4px;
+        padding: 4px 6px;
       }
       
-      .btn {
-        font-size: 16px;
-        padding: 15px 20px;
-        min-height: 50px;
-        margin: 6px 0;
-      }
-
-      #questionNumber {
-        font-size: 16px;
-        margin-bottom: 8px;
+      .names-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 6px;
       }
     }
 
-    /* התאמות למסכים גדולים יותר */
+    /* התאמות למסכים בינוניים */
+    @media (min-width: 500px) {
+      .names-columns {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px 10px;
+      }
+    }
+
+    /* התאמות למסכים גדולים */
     @media (min-width: 768px) {
       .container {
-        width: 90%;
-        max-width: 500px;
-        border-radius: 12px;
-        margin-top: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+        border-radius: 25px;
         min-height: auto;
-        padding: 20px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       }
       
       .names-columns {
         grid-template-columns: repeat(3, 1fr);
       }
-      
-      .name-item {
-        font-size: 11px;
-      }
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.8); opacity: 0; }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
 
 <div class="container" id="introScreen">
-  <h1>בחר בחור מהשיעור</h1>
+  <h1>🎯 בחר בחור מהשיעור</h1>
   <div class="subtitle">שסיים איתנו ש"ג בק"ג והגיע לקבוצה</div>
   
   <div class="names-list">
-    <h3>רשימת הבחורים</h3>
+    <h3>📋 רשימת הבחורים</h3>
     <div class="names-columns">
       <div class="name-item">אוריה יעקובוב</div>
       <div class="name-item">ארי אורנשטיין</div>
@@ -305,18 +399,18 @@
     </div>
   </div>
   
-  <button class="btn" onclick="startQuiz()">בחרתי - אפשר להתחיל</button>
+  <button class="btn" onclick="startQuiz()">🚀 בחרתי - אפשר להתחיל!</button>
 </div>
 
 <div class="container" id="quizScreen">
-  <button id="backBtn" class="btn-small" onclick="goBack()" style="display:none;">⬅ חזור</button>
+  <button id="backBtn" class="btn-small" onclick="goBack()" style="display:none;">↩️ חזור</button>
   <div id="questionNumber"></div>
-  <h1 id="question">טוען שאלה...</h1>
+  <h1 id="question" class="fade-in">טוען שאלה...</h1>
   <div style="text-align: center;">
-    <button class="btn" onclick="answer('yes')">כן</button>
-    <button class="btn" onclick="answer('no')">לא</button>
+    <button class="btn" onclick="answer('yes')">✅ כן</button>
+    <button class="btn" onclick="answer('no')">❌ לא</button>
   </div>
-  <button class="btn" id="restartBtn" onclick="goToMainScreen()" style="display:none;">🔁 התחל מחדש</button>
+  <button class="btn" id="restartBtn" onclick="goToMainScreen()" style="display:none;">🔄 התחל מחדש</button>
 </div>
 
 <script>
@@ -576,26 +670,22 @@
     if (typeof currentNode === "string") {
       numberEl.innerText = "";
       questionEl.innerHTML = `
-        <div style="
-          background: linear-gradient(135deg, #b39ddb, #90caf9);
-          padding: 25px;
-          border-radius: 20px;
-          box-shadow: 0 0 20px rgba(0,0,0,0.2);
-          font-size: 22px;
-          color: #fff;
-          font-weight: bold;
-          animation: pop 0.5s ease;
-        ">
-          🎉 הניחוש שלנו: <br><span style="font-size: 28px;">${currentNode}</span> 🎉
+        <div class="result-container">
+          <div class="result-emoji">🎉</div>
+          <div class="result-text">הניחוש שלנו:</div>
+          <div class="result-name">${currentNode}</div>
+          <div class="result-emoji">🎯</div>
         </div>
       `;
       document.querySelectorAll("#quizScreen .btn").forEach(btn => btn.style.display = "none");
       document.getElementById("restartBtn").style.display = "inline-block";
       document.getElementById("backBtn").style.display = "none";
     } else {
-      questionCount++;
-      numberEl.innerText = `שאלה מס' ${questionCount}`;
+      // ספירת השאלות על בסיס עומק הנתיב במקום הוספה פשוטה
+      questionCount = pathStack.length + 1;
+      numberEl.innerText = `❓ שאלה מס' ${questionCount}`;
       questionEl.innerText = currentNode.question;
+      questionEl.className = "fade-in";
       document.querySelectorAll("#quizScreen .btn").forEach(btn => btn.style.display = "inline-block");
       document.getElementById("restartBtn").style.display = "none";
       document.getElementById("backBtn").style.display = pathStack.length > 0 ? "inline-block" : "none";
@@ -616,8 +706,7 @@
   function goBack() {
     if (pathStack.length > 0) {
       currentNode = pathStack.pop();
-      questionCount--;
-      showQuestion();
+      showQuestion(); // הוספה: קריאה מחדש ל-showQuestion כדי לעדכן את מספר השאלה
     }
   }
 
@@ -627,6 +716,13 @@
     questionCount = 0;
     showQuestion();
   }
+
+  // הוספת ויברציה קלה בלחיצה על כפתורים (אם נתמך)
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn') && 'vibrate' in navigator) {
+      navigator.vibrate(50);
+    }
+  });
 </script>
 
 </body>
