@@ -171,25 +171,32 @@ h1 {
   top: 0;
   background: inherit;
   padding: 5px 0;
+  z-index: 2;
 }
 
 .names-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px 10px;
-  line-height: 1.1;
+  gap: 4px 12px;
 }
 
 .name-item {
   color: #34495e;
-  font-size: 11px; /* פונט קטן */
-  padding: 4px 6px;
+  font-size: 12px; /* פונט קטן */
+  padding: 6px 8px;
   text-align: right;
   font-weight: 500;
-  max-width: 200px; /* רוחב מקסימלי לכל שם */
-  word-break: break-word; /* שבירה במילים ארוכות */
-  white-space: normal; /* מאפשר שבירת שורות */
+  white-space: nowrap; /* מונע שבירה לשורה חדשה */
+  overflow: hidden;    /* חיתוך אם ארוך */
+  text-overflow: ellipsis; /* הוספת ... כשחסר מקום */
 }
+
+.name-item:before {
+  content: "• ";
+  color: #6c757d;
+  font-size: 10px;
+}
+
 
 .result-container {
   background: linear-gradient(135deg, #1abc9c, #16a085);
