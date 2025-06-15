@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>חידון זיהוי</title>
- <style>
+<style>
     * {
       margin: 0;
       padding: 0;
@@ -16,36 +16,18 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       direction: rtl;
       min-height: 100vh;
-      /* רקע מחליף צבעים שעובד גם בפלאפון */
-      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 8s ease infinite;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
       overflow-x: hidden;
     }
 
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
     .container {
-      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+      background: linear-gradient(145deg, #ffffff, #f8f9fa);
       margin: 0;
       padding: 25px 20px;
       min-height: 100vh;
       position: relative;
       box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
-      backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
     /* כותרות וטקסטים */
@@ -80,39 +62,25 @@
       background-clip: text;
     }
 
-    /* איזור תוכן עליון */
-    .content-top {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* איזור כפתורים תחתון */
-    .buttons-area {
-      margin-top: auto;
-      padding-top: 30px;
-    }
-
     /* כפתורים עיקריים */
     .btn {
       background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
       color: white;
       border: none;
-      border-radius: 25px;
-      padding: 30px 40px;
-      font-size: 24px;
+      border-radius: 20px;
+      padding: 25px 30px;
+      font-size: 22px;
       font-weight: 700;
-      margin: 20px auto;
+      margin: 15px 0;
       cursor: pointer;
       transition: all 0.3s ease;
-      width: 85%;
-      max-width: 400px;
-      min-height: 90px;
+      width: 100%;
+      min-height: 75px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
       position: relative;
       overflow: hidden;
     }
@@ -138,88 +106,76 @@
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(52, 152, 219, 0.4);
+      box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4);
     }
 
     /* כפתור חזרה */
-    .btn-small {
-      background: #7f8c8d;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      cursor: pointer;
-      padding: 8px 14px;
-      z-index: 10;
-      font-weight: 500;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
+.btn-small {
+  background: #7f8c8d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  padding: 8px 14px;
+  z-index: 10;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 
-    .btn-small:hover {
-      background: #95a5a6;
-      transform: translateY(-1px);
-    }
+.btn-small:hover {
+  background: #95a5a6;
+  transform: translateY(-1px);
+}
+
 
     /* כפתור התחל מחדש */
     #restartBtn {
       background: linear-gradient(135deg, #e74c3c, #c0392b);
-      box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+      margin-top: 30px;
     }
 
     #restartBtn:hover {
-      box-shadow: 0 15px 40px rgba(231, 76, 60, 0.4);
+      box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
     }
 
     /* מסכים */
     #introScreen {
       display: block;
       text-align: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
     }
 
     #quizScreen {
       display: none;
-      height: 100%;
-      flex-direction: column;
     }
 
-    /* רשימת השמות - תיקון הבעיה עם הגלילה */
+    /* רשימת השמות */
     .names-list {
       background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
       border-radius: 15px;
-      padding: 0;
+      padding: 15px;
       margin: 20px 0 25px 0;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border: 1px solid #d5dbdb;
       max-height: 300px;
-      overflow: hidden;
-      position: relative;
+      overflow-y: auto;
     }
 
     .names-list h3 {
       color: #2c3e50;
-      margin: 0;
+      margin: 0 0 12px 0;
       font-size: 18px;
       text-align: center;
       font-weight: 700;
-      background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
-      padding: 15px;
-      border-bottom: 1px solid #d5dbdb;
       position: sticky;
       top: 0;
-      z-index: 5;
-    }
-
-    .names-content {
-      padding: 15px;
-      max-height: 240px;
-      overflow-y: auto;
+      background: inherit;
+      padding: 5px 0;
     }
 
     .names-columns {
@@ -332,19 +288,14 @@
       }
       
       .btn {
-        font-size: 22px;
-        padding: 25px 30px;
-        min-height: 80px;
-        width: 90%;
+        font-size: 20px;
+        padding: 22px 25px;
+        min-height: 70px;
       }
       
       .names-list {
-        max-height: 250px;
-      }
-
-      .names-content {
         padding: 12px;
-        max-height: 190px;
+        max-height: 250px;
       }
       
       .name-item {
@@ -378,13 +329,9 @@
       .names-columns {
         grid-template-columns: repeat(3, 1fr);
       }
-      
-      .btn {
-        width: 70%;
-        max-width: 350px;
-      }
     }
   </style>
+
 </head>
 <body>
 
