@@ -16,7 +16,7 @@ body {
   direction: rtl;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
   background-repeat: no-repeat;
   overflow-x: hidden;
@@ -68,13 +68,13 @@ h1 {
   border: none;
   border-radius: 20px;
   padding: 25px 30px;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   margin: 15px 0;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  min-height: 75px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,7 +175,7 @@ h1 {
 
 .names-columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 4px 12px;
 }
 
@@ -207,17 +207,9 @@ h1 {
 }
 
 @keyframes resultPop {
-  0% { 
-    transform: scale(0.3) rotate(-5deg); 
-    opacity: 0; 
-  }
-  50% { 
-    transform: scale(1.1) rotate(2deg); 
-  }
-  100% { 
-    transform: scale(1) rotate(0deg); 
-    opacity: 1; 
-  }
+  0% { transform: scale(0.3) rotate(-5deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
 .result-text {
@@ -242,33 +234,21 @@ h1 {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
 }
 
 @keyframes fadeInUp {
-  from { 
-    opacity: 0; 
-    transform: translateY(30px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in {
   animation: fadeInUp 0.5s ease;
 }
 
-/* עדכון מדיה קוורי לוודא 3 טורים בכל הגדלים */
+/* רספונסיביות */
 @media (max-width: 400px) {
   .container {
     padding: 20px 15px;
@@ -297,9 +277,8 @@ h1 {
     padding: 3px 5px;
   }
 
-  /* שמירה על 3 טורים גם במסכים קטנים */
   .names-columns {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 2px 6px;
   }
 
@@ -313,10 +292,10 @@ h1 {
 
 @media (min-width: 401px) and (max-width: 500px) {
   .names-columns {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 4px 8px;
   }
-  
+
   .name-item {
     font-size: 11px;
   }
@@ -324,10 +303,10 @@ h1 {
 
 @media (min-width: 501px) {
   .names-columns {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 4px 10px;
   }
-  
+
   .name-item {
     font-size: 12px;
   }
@@ -342,16 +321,14 @@ h1 {
   }
 
   .names-columns {
-    grid-template-columns: repeat(3, 1fr);
     gap: 6px 12px;
   }
-  
+
   .name-item {
     font-size: 13px;
     padding: 8px 10px;
   }
 }
-
 </style>
 
 </head>
