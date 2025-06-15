@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>חידון זיהוי</title>
 <style>
-* {
+  * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -176,20 +176,20 @@ h1 {
 .names-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px 12px;
-  line-height: 1.2;
+  gap: 4px 10px;
+  line-height: 1.1;
 }
 
 .name-item {
   color: #34495e;
-  font-size: 10px;
-  padding: 6px 8px;
+  font-size: 11px; /* פונט קטן */
+  padding: 4px 6px;
   text-align: right;
   font-weight: 500;
+  max-width: 200px; /* רוחב מקסימלי לכל שם */
+  word-break: break-word; /* שבירה במילים ארוכות */
+  white-space: normal; /* מאפשר שבירת שורות */
 }
-
-
-
 
 .result-container {
   background: linear-gradient(135deg, #1abc9c, #16a085);
@@ -263,13 +263,52 @@ h1 {
   animation: fadeInUp 0.5s ease;
 }
 
-/* הורדתי את מדיה שאילצה טור אחד במסכים קטנים */
-/* בכל המסכים - שלושה טורים ברשימת השמות */
+@media (max-width: 400px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 24px;
+    padding: 30px;
+    min-height: 90px;
+  }
+
+  .names-list {
+    padding: 12px;
+  }
+
+  .name-item {
+    font-size: 10px; /* עוד יותר קטן לנייד */
+    padding: 3px 5px;
+    max-width: 150px;
+  }
+
+  .names-columns {
+    grid-template-columns: 1fr;
+    gap: 4px 8px;
+  }
+
+  #introScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90vh;
+  }
+}
 
 @media (min-width: 500px) {
   .names-columns {
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px 12px;
+    gap: 4px 10px;
   }
 }
 
