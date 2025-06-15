@@ -692,7 +692,7 @@ h1 {
     } else {
       // ספירת השאלות על בסיס עומק הנתיב במקום הוספה פשוטה
       questionCount = pathStack.length + 1;
-      numberEl.innerText = " שאלה מס' ${questionCount}`;
+      numberEl.innerText = `שאלה מס' ${questionCount}`;
       questionEl.innerText = currentNode.question;
       questionEl.className = "fade-in";
       document.querySelectorAll("#quizScreen .btn").forEach(btn => btn.style.display = "inline-block");
